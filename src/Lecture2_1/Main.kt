@@ -7,11 +7,15 @@ private var userList : MutableList<Person> = mutableListOf()
         val user2 = Person("Мария", "Афанасьева", 56)
         val user3 = Person("Аврора", "Лесничая", 23)
         val user4 = Person("Афий", "Броский", 33)
+        val user5 = Person("Флавий", "Терентов", 15)
         add(user1)
         add(user2)
         add(user3)
         add(user4)
+        add(user5)
         showList()
+        deleteByAge()
+
     }
 
     private fun add (user: Person) {
@@ -24,6 +28,13 @@ private var userList : MutableList<Person> = mutableListOf()
 
     private fun showList () {
         userList.sortBy { it.name }
+        for (person in userList) {
+            println(toString(person))
+        }
+    }
+
+    fun deleteByAge() {
+        userList.removeIf { it.age <= 18 }
         for (person in userList) {
             println(toString(person))
         }
